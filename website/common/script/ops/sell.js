@@ -15,9 +15,9 @@ const ACCEPTEDTYPES = ['eggs', 'hatchingPotions', 'food'];
 export default function sell (user, req = {}) {
   const key = get(req.params, 'key');
   const type = get(req.params, 'type');
-  const amount = get(req.query, 'amount', 1);
+  const amount = Number(get(req.query, 'amount', 1));
 
-  if (amount < 0) {
+  if (!Number.isInteger(amount) || amount < 0) {
     throw new BadRequest(i18n.t('positiveAmountRequired', req.language));
   }
 

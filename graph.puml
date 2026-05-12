@@ -1,0 +1,27 @@
+@startuml
+skinparam componentStyle rectangle
+
+actor "Utilisateur" as User
+
+component "Client / Frontend\n(Vue.js)" as Client
+note right of Client
+  Interface visible par l'utilisateur
+  (Navigateur web ou app mobile)
+end note
+
+component "Serveur / Backend\n(Node.js / Express)" as Server
+note right of Server
+  "Cerveau" de l'application
+  Applique les règles du jeu
+  (Le diagramme de classes se situe ici)
+end note
+
+database "Base de données\n(MongoDB)" as DB
+note right of DB
+  Sauvegarde de toutes les données
+end note
+
+User --> Client : Interagit
+Client <--> Server : Requêtes API / Réponses
+Server <--> DB : Lecture / Écriture
+@enduml
