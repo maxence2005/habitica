@@ -18,3 +18,13 @@ Habitica's code is licensed as described at https://github.com/HabitRPG/habitica
 **Creating a third-party tool?** Please review our [API Usage Guidelines](https://github.com/HabitRPG/habitica/wiki/API-Usage-Guidelines) to ensure that your tool is compliant and maintains the best experience for Habitica players.
 
 **Have any questions about Habitica or contributing?** See the links in the [Habitica](https://habitica.com) website's Help menu. There’s FAQ’s, guides, and the option to reach out to us with any further questions!
+
+## Améliorations de la Qualité et Corrections
+
+Lors de ce sprint de maintenance, plusieurs actions correctives ont été menées sur le code source suite à une analyse SonarQube :
+
+* Correction de sécurité (Bloquant) : Suppression d'un mot de passe/hash codé en dur (`auth.local.hashed_password`). La valeur est désormais sécurisée et injectée via les variables d'environnement (Issue #2).
+* Correction de bug (Critique) : Résolution d'une faille permettant l'injection de valeurs `NaN` lors de la vente d'objets (Validation stricte des inputs ajoutée).
+
+> **Note :** Ce dépôt est un fork du projet original Habitica. Il a été modifié dans le cadre d'un projet d'audit de code, de correction de bugs et d'intégration continue.
+
